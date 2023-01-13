@@ -6,3 +6,4 @@
 2023-01-12 08:53:49,556 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2023-01-12 08:56:27,446 django.utils.autoreload INFO     /home/ruslan/PycharmProjects/SurveysAPI/surveys_api/surveys/views.py changed, reloading.
 2023-01-12 08:56:28,492 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-01-13 17:26:04,923 django.utils.autoreload INFO     Watching for file changes with StatReloader
