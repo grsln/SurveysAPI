@@ -100,13 +100,13 @@ class SimpleSurveyResView(APIView):
 class SimpleSurveyCreateView(APIView):
     permission_classes = (IsAuthenticated,)
 
-    @swagger_auto_schema(responses={status.HTTP_200_OK: SimpleSurveySerializer})
+    @swagger_auto_schema(responses={status.HTTP_201_CREATED: SimpleSurveySerializer})
     def post(self, request):
         survey = SimpleSurvey.objects.create(
             simple_survey_date=timezone.now(), status=False
         )
         serializer = SimpleSurveySerializer(survey, many=False)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
 class CustomUserCreate(APIView):

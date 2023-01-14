@@ -5,11 +5,13 @@ from . import views
 app_name = "surveys"
 
 urlpatterns = [
-    path("survey/<int:pk>/", views.SimpleSurveyView.as_view(), name="edit_survey"),
-    path("result/<int:pk>/", views.SimpleSurveyResView.as_view(), name="survey_result"),
+    path("surveys/<int:pk>/", views.SimpleSurveyView.as_view(), name="edit_survey"),
     path(
-        "survey/create/", views.SimpleSurveyCreateView.as_view(), name="create_survey"
+        "results/<int:pk>/", views.SimpleSurveyResView.as_view(), name="survey_result"
     ),
-    path("user/create/", views.CustomUserCreate.as_view(), name="create_user"),
-    path("user/<int:pk>/", views.CustomUser.as_view(), name="edit_user"),
+    path(
+        "surveys/create/", views.SimpleSurveyCreateView.as_view(), name="create_survey"
+    ),
+    path("users/create/", views.CustomUserCreate.as_view(), name="create_user"),
+    path("users/<int:pk>/", views.CustomUser.as_view(), name="edit_user"),
 ]
