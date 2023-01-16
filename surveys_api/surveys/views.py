@@ -1,6 +1,7 @@
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
+from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
 from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
@@ -51,7 +52,13 @@ class QuestionAnswersView(APIView):
 class SimpleSurveyView(APIView):
     permission_classes = (IsAuthenticated,)
 
-    @swagger_auto_schema(responses={status.HTTP_200_OK: SimpleSurveySerializer})
+    @swagger_auto_schema(
+        responses={
+            status.HTTP_200_OK: openapi.Response(
+                "response description", SimpleSurveySerializer
+            )
+        }
+    )
     def get(self, request, pk):
         survey = SimpleSurvey.objects.filter(pk=pk)
         serializer = SimpleSurveySerializer(survey, many=True)
@@ -59,7 +66,11 @@ class SimpleSurveyView(APIView):
 
     @swagger_auto_schema(
         request_body=SimpleSurveySerializer,
-        responses={status.HTTP_200_OK: SimpleSurveyResSerializer},
+        responses={
+            status.HTTP_200_OK: openapi.Response(
+                "response description", SimpleSurveyResSerializer
+            )
+        },
     )
     def put(self, request, pk):
         saved_survey = get_object_or_404(SimpleSurvey.objects.all(), pk=pk)
@@ -90,7 +101,13 @@ class SimpleSurveyView(APIView):
 class SimpleSurveyResView(APIView):
     permission_classes = (IsAuthenticated,)
 
-    @swagger_auto_schema(responses={status.HTTP_200_OK: SimpleSurveyResSerializer})
+    @swagger_auto_schema(
+        responses={
+            status.HTTP_200_OK: openapi.Response(
+                "response description", SimpleSurveyResSerializer
+            )
+        }
+    )
     def get(self, request, pk):
         survey = SimpleSurvey.objects.filter(pk=pk, status=True)
         serializer = SimpleSurveyResSerializer(survey, many=True)
@@ -100,7 +117,13 @@ class SimpleSurveyResView(APIView):
 class SimpleSurveyCreateView(APIView):
     permission_classes = (IsAuthenticated,)
 
-    @swagger_auto_schema(responses={status.HTTP_201_CREATED: SimpleSurveySerializer})
+    @swagger_auto_schema(
+        responses={
+            status.HTTP_201_CREATED: openapi.Response(
+                "response description", SimpleSurveySerializer
+            )
+        }
+    )
     def post(self, request):
         survey = SimpleSurvey.objects.create(
             simple_survey_date=timezone.now(), status=False
