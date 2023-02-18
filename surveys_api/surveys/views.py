@@ -7,6 +7,7 @@ from rest_framework import status
 from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from .models import Answer, Question, SimpleSurvey, SimpleSurveyResult, User
 from .serializers import (
@@ -17,7 +18,33 @@ from .serializers import (
     ResultSerializer,
     SimpleSurveyResSerializer,
     SimpleSurveySerializer,
+    TokenObtainPairResponseSerializer,
+    TokenRefreshResponseSerializer,
 )
+
+
+class DecoratedTokenObtainPairView(TokenObtainPairView):
+    @swagger_auto_schema(
+        responses={
+            status.HTTP_200_OK: openapi.Response(
+                "successful operation", TokenObtainPairResponseSerializer
+            )
+        }
+    )
+    def post(self, request, *args, **kwargs):
+        return super().post(request, *args, **kwargs)
+
+
+class DecoratedTokenRefreshView(TokenRefreshView):
+    @swagger_auto_schema(
+        responses={
+            status.HTTP_200_OK: openapi.Response(
+                "successful operation", TokenRefreshResponseSerializer
+            )
+        }
+    )
+    def post(self, request, *args, **kwargs):
+        return super().post(request, *args, **kwargs)
 
 
 class ResultView(APIView):
@@ -55,7 +82,7 @@ class SimpleSurveyView(APIView):
     @swagger_auto_schema(
         responses={
             status.HTTP_200_OK: openapi.Response(
-                "response description", SimpleSurveySerializer
+                "successful operation", SimpleSurveySerializer
             )
         }
     )
@@ -68,7 +95,7 @@ class SimpleSurveyView(APIView):
         request_body=SimpleSurveySerializer,
         responses={
             status.HTTP_200_OK: openapi.Response(
-                "response description", SimpleSurveyResSerializer
+                "successful operation", SimpleSurveyResSerializer
             )
         },
     )
@@ -104,7 +131,7 @@ class SimpleSurveyResView(APIView):
     @swagger_auto_schema(
         responses={
             status.HTTP_200_OK: openapi.Response(
-                "response description", SimpleSurveyResSerializer
+                "successful operation", SimpleSurveyResSerializer
             )
         }
     )
@@ -120,7 +147,7 @@ class SimpleSurveyCreateView(APIView):
     @swagger_auto_schema(
         responses={
             status.HTTP_201_CREATED: openapi.Response(
-                "response description", SimpleSurveySerializer
+                "successful operation", SimpleSurveySerializer
             )
         }
     )

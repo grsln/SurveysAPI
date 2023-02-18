@@ -8,3 +8,19 @@
 2023-01-12 08:56:28,492 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2023-01-13 17:26:04,923 django.utils.autoreload INFO     Watching for file changes with StatReloader
 2023-01-14 09:28:16,004 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-02-18 20:01:01,532 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-02-18 20:03:43,687 django.utils.autoreload INFO     /home/ruslan/PycharmProjects/SurveysAPI/surveys_api/surveys_api/urls.py changed, reloading.
+2023-02-18 20:03:44,806 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-02-18 20:05:37,285 django.utils.autoreload INFO     /home/ruslan/PycharmProjects/SurveysAPI/surveys_api/surveys_api/urls.py changed, reloading.
+2023-02-18 20:05:38,395 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-02-18 20:08:38,058 django.utils.autoreload INFO     /home/ruslan/PycharmProjects/SurveysAPI/surveys_api/surveys_api/urls.py changed, reloading.
+2023-02-18 20:08:39,197 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-02-18 20:12:59,986 django.utils.autoreload INFO     /home/ruslan/PycharmProjects/SurveysAPI/surveys_api/surveys_api/urls.py changed, reloading.
+2023-02-18 20:13:01,118 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-02-18 20:13:31,681 django.utils.autoreload INFO     /home/ruslan/PycharmProjects/SurveysAPI/surveys_api/surveys/urls.py changed, reloading.
+2023-02-18 20:13:32,855 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-02-18 20:14:56,927 django.request WARNING  Not Found: /favicon.ico
+2023-02-18 20:19:13,325 django.utils.autoreload INFO     /home/ruslan/PycharmProjects/SurveysAPI/surveys_api/surveys_api/urls.py changed, reloading.
+2023-02-18 20:19:14,730 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2023-02-18 20:22:34,418 django.utils.autoreload INFO     /home/ruslan/PycharmProjects/SurveysAPI/surveys_api/surveys/views.py changed, reloading.
+2023-02-18 20:22:35,919 django.utils.autoreload INFO     Watching for file changes with StatReloader

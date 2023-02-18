@@ -3,6 +3,27 @@ from rest_framework import serializers
 from .models import Answer, Question, SimpleSurvey, SimpleSurveyResult, User
 
 
+class TokenObtainPairResponseSerializer(serializers.Serializer):
+    access = serializers.CharField()
+    refresh = serializers.CharField()
+
+    def create(self, validated_data):
+        raise NotImplementedError()
+
+    def update(self, instance, validated_data):
+        raise NotImplementedError()
+
+
+class TokenRefreshResponseSerializer(serializers.Serializer):
+    access = serializers.CharField()
+
+    def create(self, validated_data):
+        raise NotImplementedError()
+
+    def update(self, instance, validated_data):
+        raise NotImplementedError()
+
+
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Answer
